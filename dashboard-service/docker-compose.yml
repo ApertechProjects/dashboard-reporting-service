@@ -12,4 +12,3 @@ services:
       - ASPNETCORE_ENVIRONMENT=${ASPNETCORE_ENVIRONMENT:-Development}
     volumes:
       - /root/dashboards-${APP:-gl}:/root/dashboards
-      - /root/reports-${APP:-gl}:/root/reports
