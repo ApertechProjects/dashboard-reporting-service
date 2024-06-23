@@ -1,0 +1,15 @@
+version: '3.1'
+
+services:
+  app:
+    build: .
+    image: reporting-service-image-${APP:-gl}
+    container_name: reporting-service-${APP:-gl}
+    restart: always
+    ports:
+      - "${PORT:-3031}:80"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=${ASPNETCORE_ENVIRONMENT:-Development}
+    volumes:
+      - /root/dashboards-${APP:-gl}:/root/dashboards
+      - /root/reports-${APP:-gl}:/root/reports
