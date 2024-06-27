@@ -3,8 +3,8 @@ version: '3.1'
 services:
   app:
     build: .
-    image: reporting-service-image-${APP:-gl}
-    container_name: reporting-service-${APP:-gl}
+    image: reporting-service-image-${PORT:-3031}
+    container_name: reporting-service-${PORT:-3031}
     restart: always
     ports:
       - "${PORT:-3031}:80"
