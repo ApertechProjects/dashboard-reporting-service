@@ -5,6 +5,7 @@ services:
     build: .
     image: reporting-service-image-${PORT:-3031}
     container_name: reporting-service-${PORT:-3031}
+    network_mode: bridge
     restart: always
     ports:
       - "${PORT:-3031}:80"
