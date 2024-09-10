@@ -1,7 +1,7 @@
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build-env
 WORKDIR /app
 
-RUN dotnet nuget add source https://nuget.devexpress.com/w1pUFolFqmyFfjuGPRqZRdsnasfwmAZUiZtveakOztKkalG4JF/api/v3/index.json
+RUN dotnet nuget add source https://nuget.devexpress.com/3GAOGnkg582VWsphOjRwQPRun5YtpsKWXzrxaROQNsVmGqIlAq/api/v3/index.json
 COPY AspNetCoreDashboardBackend.csproj .
 
 RUN dotnet restore "./AspNetCoreDashboardBackend.csproj"
