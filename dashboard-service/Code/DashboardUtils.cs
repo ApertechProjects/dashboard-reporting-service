@@ -2,13 +2,16 @@
 using DevExpress.DashboardCommon;
 using DevExpress.DashboardWeb;
 using DevExpress.DataAccess.Json;
+using DevExpress.Map.Kml.Model;
 using Microsoft.Extensions.FileProviders;
 
 namespace AspNetCoreDashboardBackend.Code {
     public static class DashboardUtils {
         public static DashboardConfigurator CreateDashboardConfigurator(IConfiguration configuration, IFileProvider fileProvider) {
             DashboardConfigurator configurator = new DashboardConfigurator();
+            var path = ConfigurationHelper.GetConfigValue(configuration, configurator);
             configurator.SetDashboardStorage(new DashboardFileStorage("/root/dashboards"));
+            configurator.SetDashboardStorage(new DashboardFileStorage(path);
             configurator.SetDataSourceStorage(CreateDataSourceStorage());
             configurator.SetConnectionStringsProvider(new DashboardConnectionStringsProvider(configuration));
             configurator.ConfigureDataConnection += Configurator_ConfigureDataConnection;
