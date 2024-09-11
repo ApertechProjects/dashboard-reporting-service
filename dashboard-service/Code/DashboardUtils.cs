@@ -9,9 +9,8 @@ namespace AspNetCoreDashboardBackend.Code {
     public static class DashboardUtils {
         public static DashboardConfigurator CreateDashboardConfigurator(IConfiguration configuration, IFileProvider fileProvider) {
             DashboardConfigurator configurator = new DashboardConfigurator();
-            var path = ConfigurationHelper.GetConfigValue(configuration, configurator);
-            configurator.SetDashboardStorage(new DashboardFileStorage("/root/dashboards"));
-            configurator.SetDashboardStorage(new DashboardFileStorage(path);
+            var path = ConfigurationHelper.GetConfigValue();
+            configurator.SetDashboardStorage(new DashboardFileStorage(path));
             configurator.SetDataSourceStorage(CreateDataSourceStorage());
             configurator.SetConnectionStringsProvider(new DashboardConnectionStringsProvider(configuration));
             configurator.ConfigureDataConnection += Configurator_ConfigureDataConnection;

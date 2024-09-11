@@ -2,12 +2,10 @@
 
 public static class ConfigurationHelper
 {
-    public ConfigurationHelper()
-    {
 
     private static IConfiguration _configuration;
 
-    static MyStaticClass()
+    static ConfigurationHelper()
     {
         string environment = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
 
@@ -22,5 +20,4 @@ public static class ConfigurationHelper
     {
         return _configuration["FilePath"];
     }
-}
 }
