@@ -18,7 +18,10 @@ builder.Services.AddCors(options => {
     });
 });
 builder.Services.AddDevExpressControls();
-builder.Services.AddControllers();
+builder.Services.AddControllers(options =>
+{
+    options.Filters.Add(typeof(CustomExceptionFilter));
+});
 
 builder.Services.AddScoped<DashboardConfigurator>((IServiceProvider serviceProvider) => {
     return DashboardUtils.CreateDashboardConfigurator(configuration, fileProvider);
@@ -29,6 +32,7 @@ var app = builder.Build();
 
 app.UseMiddleware<UserIdSetMiddleware>();
 app.UseDevExpressControls();
+app.UseDeveloperExceptionPage();
 app.UseRouting();
 app.UseCors("CorsPolicy");
 app.MapDashboardRoute("api/dashboard", "DefaultDashboard");
